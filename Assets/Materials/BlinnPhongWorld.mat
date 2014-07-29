@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Ward
-  m_Shader: {fileID: 4800000, guid: d8c8682f222fdd54abab049fddc50eaf, type: 3}
+  m_Name: BlinnPhongWorld
+  m_Shader: {fileID: 4800000, guid: 762dcbd6bdef57740adf00cc4c0b5983, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -25,8 +25,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: .0367646813, b: .0367646813, a: 0}
+        second: {r: 1, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color2
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: .0482757092, b: 1, a: 1}
