@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DisplacementBlinnPhong
-  m_Shader: {fileID: 4800000, guid: 58cc9e9ae4e770e4a923c3e5d50f793f, type: 3}
+  m_Name: EdgeLengthTesellation
+  m_Shader: {fileID: 4800000, guid: 8f5bba4b3277ab641b9468161a1be4a6, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -38,21 +38,21 @@ Material:
       data:
         first:
           name: _EdgeLength
-        second: 40.5714302
+        second: 9.8571434
       data:
         first:
           name: _Displacement
-        second: .139285728
+        second: .0857142955
       data:
         first:
           name: _MaxDisplacement
-        second: .300000012
+        second: 100
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .323529422, g: 1, b: .412170321, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: 0, g: 1, b: .875862122, a: .501960814}
+        second: {r: .5, g: .5, b: .5, a: .5}

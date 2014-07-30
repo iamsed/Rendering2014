@@ -27,6 +27,7 @@
 
             void disp (inout appdata v)
             {
+            //tex2Dlod Samples a 2D texture with mipmaps
                 float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
                 v.vertex.xyz += v.normal * d;
             }

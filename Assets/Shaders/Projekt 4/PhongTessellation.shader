@@ -1,4 +1,4 @@
-﻿Shader "Phong Tessellation" {
+﻿Shader "Animacja/Tessellation/Phong Tessellation" {
         Properties {
             _EdgeLength ("Edge length", Range(2,50)) = 5
             _Phong ("Phong Strengh", Range(0,1)) = 0.5
@@ -11,7 +11,33 @@
             
             CGPROGRAM
             #pragma surface surf Lambert vertex:dispNone tessellate:tessEdge tessphong:_Phong nolightmap
-            #include "Tessellation.cginc"
+            
+            float UnityCalcEdgeTessFactor (float3 wpos0, float3 wpos1, float edgeLen)
+			{
+				// distance to edge center
+				float dist = distance (0.5 * (wpos0+wpos1), _WorldSpaceCameraPos);
+				// length of the edge
+				float len = distance(wpos0, wpos1);
+				// edgeLen is approximate desired size in pixels
+				float f = max(len * _ScreenParams.y / (edgeLen * dist), 1.0);
+				return f;
+			}
+            
+            // Desired edge length based tessellation:
+			// Approximate resulting edge length in pixels is "edgeLength".
+			// Does not take viewing FOV into account, just flat out divides factor by distance.
+			float4 UnityEdgeLengthBasedTess (float4 v0, float4 v1, float4 v2, float edgeLength)
+			{
+				float3 pos0 = mul(_Object2World,v0).xyz;
+				float3 pos1 = mul(_Object2World,v1).xyz;
+				float3 pos2 = mul(_Object2World,v2).xyz;
+				float4 tess;
+				tess.x = UnityCalcEdgeTessFactor (pos1, pos2, edgeLength);
+				tess.y = UnityCalcEdgeTessFactor (pos2, pos0, edgeLength);
+				tess.z = UnityCalcEdgeTessFactor (pos0, pos1, edgeLength);
+				tess.w = (tess.x + tess.y + tess.z) / 3.0f;
+				return tess;
+			}
 
             struct appdata {
                 float4 vertex : POSITION;
