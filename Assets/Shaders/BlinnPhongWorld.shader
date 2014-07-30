@@ -8,6 +8,7 @@
         Tags { "RenderType" = "Opaque" }
 	CGPROGRAM
        #pragma surface surf SimpleBlinnPhongWorld
+       
    		half3 _Color;
    		half3 _Color2;
    		
