@@ -24,7 +24,7 @@ Material:
       data:
         first:
           name: _Roughness
-        second: .157142892
+        second: .285714298
       data:
         first:
           name: _DiffuseReflection
